@@ -1,19 +1,21 @@
-if __name__ == '__main__':
-    N = int(input())
+def process_commands(N, commands):
+    result = []
     list1 = []
-    for l in range(0, N):
-        command = input().split()
-        if command[0] == 'insert':
-            list1.insert(int(command[1]),int(command[2]))
-        elif command[0] == 'append':
+    for i in range(N):
+        command = commands[i].split()
+        cmd = command[0]
+        if cmd == 'insert':
+            list1.insert(int(command[1]), int(command[2]))
+        elif cmd == 'append':
             list1.append(int(command[1]))
-        elif command[0] == 'remove':
+        elif cmd == 'remove':
             list1.remove(int(command[1]))
-        elif command[0] == 'sort':
+        elif cmd == 'sort':
             list1.sort()
-        elif command[0] == 'pop':
+        elif cmd == 'pop':
             list1.pop()
-        elif command[0] == 'reverse':
+        elif cmd == 'reverse':
             list1.reverse()
-        else:
-            print(list1)
+        elif cmd == 'print':
+            result.append(list1.copy())
+    return result
